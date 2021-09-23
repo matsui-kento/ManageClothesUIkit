@@ -14,8 +14,9 @@ import RxSwift
 class DetailViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
-    private let detailButton = DeleteButton()
-    private let detailImageView = DetailImageView()
+    @IBOutlet weak var detailImageView: UIImageView!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     var imageURLString: String = ""
     var documentID: String = ""
     var index: Int = 0
@@ -34,16 +35,11 @@ class DetailViewController: UIViewController {
     }
     
     private func setupLayout() {
-        
         detailImageView.sd_setImage(with: URL(string: imageURLString), completed: nil)
-        view.addSubview(detailButton)
-        view.addSubview(detailImageView)
-        detailButton.anchor(top: detailImageView.bottomAnchor ,left: view.leftAnchor, right: view.rightAnchor, height: 50, topPadding: 50, leftPadding: 40, rightPadding: 40)
-        detailImageView.anchor(centerY: view.centerYAnchor, centerX: view.centerXAnchor, width: 250, height: 250)
     }
     
     private func setupBindings() {
-        detailButton.rx.tap
+        deleteButton.rx.tap
             .asDriver()
             .drive() { _ in
                 self.deleteClothes()

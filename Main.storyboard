@@ -42,7 +42,7 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <segue destination="ogw-BY-OhM" kind="showDetail" id="xhO-YW-vc9"/>
+                                            <segue destination="ogw-BY-OhM" kind="showDetail" identifier="toDetailVC" id="xhO-YW-vc9"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="963.76811594202911" y="-350.22321428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="LzA-sK-PjE">
             <objects>
-                <viewController id="ogw-BY-OhM" sceneMemberID="viewController">
+                <viewController id="ogw-BY-OhM" customClass="DetailViewController" customModule="ManageClothesUIkit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FAf-BH-mD7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,6 +111,10 @@
                             <constraint firstItem="jGi-0z-ebm" firstAttribute="leading" secondItem="mQC-lP-LEh" secondAttribute="leading" constant="20" id="x0e-fg-W4X"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="deleteButton" destination="jGi-0z-ebm" id="kbM-WD-pJy"/>
+                        <outlet property="detailImageView" destination="bbv-F3-Vnq" id="Zsc-C1-pWL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUS-aP-RTC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
