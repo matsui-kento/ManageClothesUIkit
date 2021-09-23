@@ -12,9 +12,10 @@ import Firebase
 
 class SettingViewController: UIViewController {
     private let disposeBag = DisposeBag()
-    private let logoutButton = LogoutButton()
-    private let loginButton = LoginButton()
-    private let policyButton = PolicyButton()
+    
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var policyButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,22 +27,11 @@ class SettingViewController: UIViewController {
     }
     
     private func setupLayout() {
-        
-        let stackView: UIStackView
-        
         if Auth.auth().currentUser?.uid == nil {
-            stackView = UIStackView(arrangedSubviews: [policyButton, loginButton])
+            loginButton.isHidden = false
         } else {
-            stackView = UIStackView(arrangedSubviews: [policyButton, logoutButton])
+            loginButton.isHidden = true
         }
-        
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.spacing = 20
-        view.addSubview(stackView)
-        logoutButton.anchor(height: 50)
-        loginButton.anchor(height: 50)
-        stackView.anchor(left: view.leftAnchor, right: view.rightAnchor, centerY: view.centerYAnchor , leftPadding: 40, rightPadding: 40)
     }
     
     private func setupBindings() {
@@ -57,13 +47,6 @@ class SettingViewController: UIViewController {
             .asDriver()
             .drive() { _ in
                 self.logout()
-            }
-            .disposed(by: disposeBag)
-        
-        policyButton.rx.tap
-            .asDriver()
-            .drive() { _ in
-                self.toPolicy()
             }
             .disposed(by: disposeBag)
     }
@@ -86,10 +69,5 @@ class SettingViewController: UIViewController {
         } catch let signOutError as NSError {
             print("Error siging out: %@", signOutError)
         }
-    }
-    
-    private func toPolicy() {
-        let policyVC = PolicyViewController()
-        self.navigationController?.pushViewController(policyVC, animated: true)
     }
 }
