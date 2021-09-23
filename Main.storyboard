@@ -197,6 +197,12 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="MqS-5p-PXX"/>
+                    <connections>
+                        <outlet property="imageView" destination="Q0f-au-CMN" id="Cbf-ft-Yr6"/>
+                        <outlet property="kindSegmentControl" destination="V2C-yI-Ev8" id="Vy5-zH-bPW"/>
+                        <outlet property="registerImageButton" destination="Oe6-Iu-Fhb" id="3WO-QZ-n3L"/>
+                        <outlet property="selectImageButton" destination="v9x-qh-gRv" id="qdP-UZ-DnT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDo-BT-1XT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
