@@ -10,19 +10,17 @@ import RxSwift
 import PKHUD
 import RxCocoa
 import Firebase
-import YSRadioButton
 
 class AddViewController: UIViewController {
     
+    @IBOutlet weak var kindSegmentControl: UISegmentedControl!
+    @IBOutlet weak var registerImageButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var selectImageButton: UIButton!
+    
     
     private let disposeBag = DisposeBag()
-    private let pickerButton = PickerButton()
-    private let registerItemButton = RegisterItemButton()
-    private let imageView = AddImageView()
-    private let categoryLabel = CategoryLabel()
     var category: String = ""
-    private let categories = ["tops", "bottoms", "other"]
-    private let radioButton = YSRadioButtonViewController(labels: ["tops", "bottoms", "other"])
     
     let imagePicker: UIImagePickerController = {
         let picker = UIImagePickerController()
@@ -35,48 +33,24 @@ class AddViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        setupRadioButton()
         setupLayout()
         setupBindings()
     }
     
     private func setupLayout() {
         imagePicker.delegate = self
-        
-        pickerButton.anchor(height: 50)
-        registerItemButton.anchor(height: 50)
-        categoryLabel.anchor(height: 50)
-        radioButton.view.anchor(height: 100)
-        let stackView = UIStackView(arrangedSubviews: [radioButton.view, pickerButton, registerItemButton])
-        stackView.axis = .vertical
-        stackView.spacing = 20
-        view.addSubview(stackView)
-        view.addSubview(imageView)
-        
-        stackView.anchor(bottom: view.bottomAnchor ,left: view.leftAnchor, right: view.rightAnchor, bottomPadding: 100 ,leftPadding: 40, rightPadding: 40)
-        imageView.anchor(bottom: stackView.topAnchor, centerX: view.centerXAnchor, width: 250, height: 250, bottomPadding: 30)
-    }
-    
-    private func setupRadioButton() {
-        radioButton.delegate = self
-        radioButton.font = UIFont.systemFont(ofSize: 18)
-        radioButton.labelColor = .black
-        radioButton.radioHeadStroke = .darkGray
-        radioButton.radioHeadFill = .black
-        addChild(radioButton)
-        radioButton.didMove(toParent: self)
     }
     
     private func setupBindings() {
         
-        pickerButton.rx.tap
+        selectImageButton.rx.tap
             .asDriver()
             .drive() { _ in
                 self.showImagePicker()
             }
             .disposed(by: disposeBag)
         
-        registerItemButton.rx.tap
+        registerImageButton.rx.tap
             .asDriver()
             .drive() { _ in
                 if (self.imageView.image != UIImage(named: "plus")) && (self.category != "") {
@@ -127,11 +101,5 @@ extension AddViewController: UIImagePickerControllerDelegate, UINavigationContro
         let image = info[.editedImage] as? UIImage
         imageView.image = image
         imagePicker.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension AddViewController: YSRadioButtonViewControllerDelegate {
-    func didYSRadioButtonSelect(no: Int) {
-        self.category = categories[no]
     }
 }

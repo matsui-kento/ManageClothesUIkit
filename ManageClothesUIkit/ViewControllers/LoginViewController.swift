@@ -80,7 +80,7 @@ class LoginViewController: UIViewController {
         dontCreateUser.rx.tap
             .asDriver()
             .drive() { _ in
-                let mainVC = MainTabViewController()
+                let mainVC = MainTabBarController()
                 self.navigationController?.pushViewController(mainVC, animated: true)
             }
             .disposed(by: disposeBag)
@@ -103,7 +103,7 @@ class LoginViewController: UIViewController {
             HUD.hide()
             if success {
                 HUD.flash(.success, delay: 1.0) { _ in
-                    let mainVC = MainTabViewController()
+                    let mainVC = MainTabBarController()
                     self.navigationController?.pushViewController(mainVC, animated: true)
                 }
             } else {
