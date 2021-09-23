@@ -81,7 +81,7 @@ class RegisterViewController: UIViewController {
         dontCreateUser.rx.tap
             .asDriver()
             .drive() { _ in
-                let mainVC = MainTabViewController()
+                let mainVC = MainTabBarController()
                 self.navigationController?.pushViewController(mainVC, animated: true)
             }
             .disposed(by: disposeBag)
@@ -104,7 +104,7 @@ class RegisterViewController: UIViewController {
             if success {
                 print("ユーザーのAuthentication,Firestoreへの保存が完了しました。")
                 HUD.flash(.success, delay: 1.0) { _ in
-                    let mainVC = MainTabViewController()
+                    let mainVC = MainTabBarController()
                     self.navigationController?.pushViewController(mainVC, animated: true)
                 }
             } else {
