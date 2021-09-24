@@ -12,7 +12,8 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupTab()
+        setupTab()
+        view.backgroundColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -21,18 +22,18 @@ class MainTabBarController: UITabBarController {
     }
     
     
-//    func setupTab() {
-//        let clothesVC = ClothesViewController()
-//        clothesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
-//
-//
-//        let addVC = AddViewController()
-//        addVC.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 2)
-//
-//        let settingVC = SettingViewController()
-//        settingVC.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 3)
-//
-//        viewControllers = [clothesVC, addVC, settingVC]
-//    }
-//
+    func setupTab() {
+        let clothesVC = ClothesViewController()
+        clothesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
+
+
+        let addVC = AddViewController()
+        addVC.tabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 2)
+
+        let settingVC = SettingViewController()
+        settingVC.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 3)
+
+        viewControllers = [clothesVC, addVC, settingVC]
+    }
+
 }

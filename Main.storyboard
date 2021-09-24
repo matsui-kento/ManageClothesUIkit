@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Clothes View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="ClothesViewController" customModule="ManageClothesUIkit" customModuleProvider="target" sceneMemberID="viewController">
@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="GMf-iW-8th">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCollectionViewCell" id="GMf-iW-8th" customClass="ImageCollectionViewCell" customModule="ManageClothesUIkit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Rrh-06-WYS">
@@ -42,6 +42,7 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="imageView" destination="FKP-5Q-LT0" id="7iy-dm-LjL"/>
                                             <segue destination="ogw-BY-OhM" kind="showDetail" identifier="toDetailVC" id="xhO-YW-vc9"/>
                                         </connections>
                                     </collectionViewCell>
@@ -68,9 +69,10 @@
                             <constraint firstItem="g5q-et-nui" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="36" id="loF-Re-ifG"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="mqH-tU-s3g"/>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="mqH-tU-s3g"/>
                     <connections>
-                        <outlet property="collectionView" destination="nnC-D0-uPY" id="lvf-dU-yHA"/>
+                        <outlet property="imageCollectionView" destination="nnC-D0-uPY" id="HDN-yM-MZ0"/>
+                        <outlet property="kindSegmentControl" destination="g5q-et-nui" id="ZcA-Ge-PUT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -140,7 +142,7 @@
             </objects>
             <point key="canvasLocation" x="-109" y="348"/>
         </scene>
-        <!--Item-->
+        <!--Add View Controller-->
         <scene sceneID="7ob-6P-TKc">
             <objects>
                 <viewController id="9br-lw-0oD" customClass="AddViewController" customModule="ManageClothesUIkit" customModuleProvider="target" sceneMemberID="viewController">
@@ -196,7 +198,7 @@
                             <constraint firstItem="NQ3-5u-Hfu" firstAttribute="bottom" secondItem="gr2-tl-our" secondAttribute="bottom" constant="51" id="qVh-Bn-q61"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="MqS-5p-PXX"/>
+                    <tabBarItem key="tabBarItem" systemItem="downloads" id="MqS-5p-PXX"/>
                     <connections>
                         <outlet property="imageView" destination="Q0f-au-CMN" id="Cbf-ft-Yr6"/>
                         <outlet property="kindSegmentControl" destination="V2C-yI-Ev8" id="Vy5-zH-bPW"/>
@@ -282,10 +284,12 @@
                             <constraint firstItem="fq8-uG-4Ca" firstAttribute="centerY" secondItem="7RQ-A0-XGk" secondAttribute="centerY" id="yg1-DE-JOX"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="9FU-4d-PE2"/>
+                    <tabBarItem key="tabBarItem" title="Item" systemItem="more" id="9FU-4d-PE2"/>
                     <connections>
+                        <outlet property="appTitle" destination="let-yD-WdT" id="mK2-GT-XRm"/>
                         <outlet property="loginButton" destination="FTs-vW-Ao4" id="xmo-b1-UXM"/>
                         <outlet property="logoutButton" destination="fN0-HS-DCh" id="hqR-HH-1ZP"/>
+                        <outlet property="nameLabel" destination="7iI-57-Gxg" id="uup-YZ-JlP"/>
                         <outlet property="policyButton" destination="EzD-Gp-JZQ" id="s1g-0a-f7z"/>
                     </connections>
                 </viewController>
