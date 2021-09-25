@@ -335,10 +335,10 @@
             </objects>
             <point key="canvasLocation" x="972" y="1103"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="prx-FU-mLO">
             <objects>
-                <viewController id="gxy-W1-Qpc" sceneMemberID="viewController">
+                <viewController id="gxy-W1-Qpc" customClass="LoginViewController" customModule="ManageClothesUIkit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Hv-c3-R7s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -389,7 +389,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="Xbh-Uh-dJe"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -423,9 +423,6 @@
                                         <state key="normal" title="アカウントを作成する">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="MbX-6d-zcQ" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="xee-5f-pZ4"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s12-6T-g2X">
                                         <rect key="frame" x="64.5" y="40" width="245" height="30"/>
@@ -455,15 +452,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GHJ-mH-Pyl"/>
+                    <connections>
+                        <outlet property="dontCreateUser" destination="s12-6T-g2X" id="MxB-Bt-Gnu"/>
+                        <outlet property="dontHaveAcountButton" destination="gq9-4F-Ynd" id="ZVq-s0-aQL"/>
+                        <outlet property="emailTextField" destination="3V9-Lr-bLy" id="3cR-GE-znY"/>
+                        <outlet property="loginButton" destination="3YU-BW-wGS" id="qO6-gV-qF2"/>
+                        <outlet property="passwordTextField" destination="fB1-a8-CXQ" id="e11-B6-3qk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ldy-NH-YWR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="963.76811594202911" y="1832.8125"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="BFs-pU-k06">
             <objects>
-                <viewController id="MbX-6d-zcQ" sceneMemberID="viewController">
+                <viewController id="MbX-6d-zcQ" customClass="RegisterViewController" customModule="ManageClothesUIkit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MTb-Ln-mDH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -520,7 +524,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="5Cr-N4-vKj"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -548,9 +552,6 @@
                                         <state key="normal" title="アカウントにログインする">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="gxy-W1-Qpc" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="0R6-eO-W95"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3O-0j-Eit">
                                         <rect key="frame" x="0.0" y="40" width="374" height="30"/>
@@ -601,9 +602,6 @@
             <point key="canvasLocation" x="1942" y="1103"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="rPe-Wz-LgY"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>

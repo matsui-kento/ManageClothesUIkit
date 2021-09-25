@@ -13,16 +13,16 @@ import PKHUD
 class LoginViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
-    private let loginButton = RegisterButton(text: "ログイン")
-    private let titleLabel = RegisterTitleLabel(text: "ログイン")
-    private let emailTextField = RegisterTextField(placeHolder: "email")
-    private let passwordTextField = RegisterTextField(placeHolder: "password(6文字以上)")
-    private let dontHaveAcountButton = HaveAcountButton(text: "まだアカウントを持っていない方はこちら")
-    private let dontCreateUser = HaveAcountButton(text: "アカウントを作らずにアプリのなかを見たい人はこちら")
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var dontHaveAcountButton: UIButton!
+    @IBOutlet weak var dontCreateUser: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .brown
+        view.backgroundColor = .white
         navigationController?.isNavigationBarHidden = true
         
         setupLayout()
@@ -30,24 +30,7 @@ class LoginViewController: UIViewController {
     }
     
     private func setupLayout() {
-        passwordTextField.isSecureTextEntry = true
-        let textFieldStackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField])
-        textFieldStackView.axis = .vertical
-        textFieldStackView.distribution = .fillEqually
-        textFieldStackView.spacing = 25
         
-        view.addSubview(textFieldStackView)
-        view.addSubview(loginButton)
-        view.addSubview(titleLabel)
-        view.addSubview(dontHaveAcountButton)
-        view.addSubview(dontCreateUser)
-        
-        emailTextField.anchor(height: 50)
-        textFieldStackView.anchor(left: view.leftAnchor, right: view.rightAnchor, centerY: view.centerYAnchor, leftPadding: 40, rightPadding: 40)
-        loginButton.anchor(top: textFieldStackView.bottomAnchor, centerX: view.centerXAnchor, width: 200, height: 60, topPadding: 30)
-        titleLabel.anchor(bottom: textFieldStackView.topAnchor, centerX: view.centerXAnchor, bottomPadding: 30)
-        dontHaveAcountButton.anchor(bottom: dontCreateUser.topAnchor, centerX: view.centerXAnchor, bottomPadding: 15)
-        dontCreateUser.anchor(bottom: view.bottomAnchor, centerX: view.centerXAnchor, bottomPadding: 30)
     }
     
     private func setupBindings() {
