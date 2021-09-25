@@ -69,7 +69,9 @@
                             <constraint firstItem="g5q-et-nui" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="36" id="loF-Re-ifG"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="mqH-tU-s3g"/>
+                    <tabBarItem key="tabBarItem" image="list.dash" catalog="system" id="mqH-tU-s3g">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="collectionViewFlowLayout" destination="ggS-I7-qVf" id="c5A-E1-Lfr"/>
                         <outlet property="imageCollectionView" destination="nnC-D0-uPY" id="HDN-yM-MZ0"/>
@@ -88,7 +90,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbv-F3-Vnq">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbv-F3-Vnq">
                                 <rect key="frame" x="82" y="296" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="7MT-Y0-dhs"/>
@@ -97,10 +99,14 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGi-0z-ebm">
                                 <rect key="frame" x="20" y="593" width="374" height="50"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Xxw-Ha-S0a"/>
                                 </constraints>
-                                <state key="normal" title="写真を削除する"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="写真を削除する">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mQC-lP-LEh"/>
@@ -151,28 +157,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="Q0f-au-CMN">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="Q0f-au-CMN">
                                 <rect key="frame" x="82" y="181" width="250" height="250"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="xdO-Ky-IxP"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="gr2-tl-our">
-                                <rect key="frame" x="20" y="613" width="374" height="149"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gr2-tl-our">
+                                <rect key="frame" x="20" y="654" width="374" height="108"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9x-qh-gRv">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="3EW-bU-lRd"/>
                                         </constraints>
-                                        <state key="normal" title="写真を選ぶ"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="写真を選ぶ">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oe6-Iu-Fhb">
-                                        <rect key="frame" x="0.0" y="99" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="58" width="374" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="mC6-ui-4fw"/>
                                         </constraints>
-                                        <state key="normal" title="写真を登録する"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="写真を登録する">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -199,7 +214,9 @@
                             <constraint firstItem="NQ3-5u-Hfu" firstAttribute="bottom" secondItem="gr2-tl-our" secondAttribute="bottom" constant="51" id="qVh-Bn-q61"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="downloads" id="MqS-5p-PXX"/>
+                    <tabBarItem key="tabBarItem" image="plus" catalog="system" id="MqS-5p-PXX">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="imageView" destination="Q0f-au-CMN" id="Cbf-ft-Yr6"/>
                         <outlet property="kindSegmentControl" destination="V2C-yI-Ev8" id="Vy5-zH-bPW"/>
@@ -219,24 +236,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gvS-Wb-H0A">
-                                <rect key="frame" x="20" y="70.5" width="374" height="128"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="gvS-Wb-H0A">
+                                <rect key="frame" x="20" y="77.5" width="374" height="121"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="クラウドクローゼット" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="let-yD-WdT">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="クラウドクローゼット" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="let-yD-WdT">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="rSg-1a-mNS"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iI-57-Gxg">
-                                        <rect key="frame" x="0.0" y="78" width="374" height="50"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ログインしていません" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iI-57-Gxg">
+                                        <rect key="frame" x="0.0" y="71" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="fQV-Jk-I9i"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -247,27 +264,39 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EzD-Gp-JZQ">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="v3s-aR-dEG"/>
                                         </constraints>
-                                        <state key="normal" title="プライバシーポリシー"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="プライバシーポリシー">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <segue destination="isn-D4-IFj" kind="modal" identifier="toPolicy" modalPresentationStyle="fullScreen" id="wbo-5y-yCJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fN0-HS-DCh">
                                         <rect key="frame" x="0.0" y="58" width="374" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="WrN-tG-kVu"/>
                                         </constraints>
-                                        <state key="normal" title="ログアウト"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="ログアウト">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTs-vW-Ao4">
                                         <rect key="frame" x="0.0" y="116" width="374" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="YR4-0l-apN"/>
                                         </constraints>
-                                        <state key="normal" title="ログイン"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="ログイン">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -285,12 +314,14 @@
                             <constraint firstItem="fq8-uG-4Ca" firstAttribute="centerY" secondItem="7RQ-A0-XGk" secondAttribute="centerY" id="yg1-DE-JOX"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" systemItem="more" id="9FU-4d-PE2"/>
+                    <tabBarItem key="tabBarItem" title="" image="gearshape" catalog="system" id="9FU-4d-PE2">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="appTitle" destination="let-yD-WdT" id="mK2-GT-XRm"/>
+                        <outlet property="emailLabel" destination="7iI-57-Gxg" id="uup-YZ-JlP"/>
                         <outlet property="loginButton" destination="FTs-vW-Ao4" id="xmo-b1-UXM"/>
                         <outlet property="logoutButton" destination="fN0-HS-DCh" id="hqR-HH-1ZP"/>
-                        <outlet property="nameLabel" destination="7iI-57-Gxg" id="uup-YZ-JlP"/>
                         <outlet property="policyButton" destination="EzD-Gp-JZQ" id="s1g-0a-f7z"/>
                     </connections>
                 </viewController>
@@ -316,9 +347,18 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus" width="150" height="150"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

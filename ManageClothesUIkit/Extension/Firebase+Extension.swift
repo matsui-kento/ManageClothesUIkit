@@ -126,7 +126,20 @@ extension Firestore {
             completion(true)
             print("Clothesの削除に成功しました。")
         }
-        
+    }
+    
+    static func fetchUserFromFirestore(uid: String, completion: @escaping (User) -> ()) {
+        let docRef = Firestore.firestore().collection("Users").document(uid)
+        docRef.getDocument { snapShot, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let data = snapShot?.data() else { return }
+            let user = User(dic: data)
+            completion(user)
+        }
     }
 }
 

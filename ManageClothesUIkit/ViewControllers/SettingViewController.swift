@@ -14,10 +14,12 @@ class SettingViewController: UIViewController {
     private let disposeBag = DisposeBag()
     
     @IBOutlet weak var appTitle: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var policyButton: UIButton!
+    
+    private var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +31,18 @@ class SettingViewController: UIViewController {
     }
     
     private func setupLayout() {
+        
+        fetchUser()
+        
         if Auth.auth().currentUser?.uid == nil {
             loginButton.isHidden = false
         } else {
             loginButton.isHidden = true
         }
+        
+        loginButton.layer.cornerRadius = 10
+        policyButton.layer.cornerRadius = 10
+        logoutButton.layer.cornerRadius = 10
     }
     
     private func setupBindings() {
@@ -51,6 +60,15 @@ class SettingViewController: UIViewController {
                 self.logout()
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func fetchUser() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        Firestore.fetchUserFromFirestore(uid: uid) { user in
+            self.user = user
+            self.emailLabel.text = user.email
+        }
     }
     
     private func login() {

@@ -39,6 +39,8 @@ class AddViewController: UIViewController {
     
     private func setupLayout() {
         imagePicker.delegate = self
+        selectImageButton.layer.cornerRadius = 10
+        registerImageButton.layer.cornerRadius = 10
     }
     
     private func setupBindings() {

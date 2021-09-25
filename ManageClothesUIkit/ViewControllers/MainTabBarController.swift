@@ -13,6 +13,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        UITabBar.appearance().tintColor = UIColor.black
     }
     
     override func viewWillAppear(_ animated: Bool) {
