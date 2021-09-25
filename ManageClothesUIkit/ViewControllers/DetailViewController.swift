@@ -49,16 +49,16 @@ class DetailViewController: UIViewController {
     }
     
     func deleteClothes() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        Firestore.deleteClothesFromFirestore(uid: uid, documentID: documentID) { success in
-            if success {
-                HUD.flash(.success, delay: 1.0)
-                ClothesViewController.clothesArray.remove(at: self.index)
-                print(ClothesViewController.clothesArray)
-                self.navigationController?.popViewController(animated: true)
-            }
-        }
-        
+//        guard let uid = Auth.auth().currentUser?.uid else { return }
+//        Firestore.deleteClothesFromFirestore(uid: uid, documentID: documentID) { success in
+//            if success {
+//                HUD.flash(.success, delay: 1.0)
+//                ClothesViewController.clothesArray.remove(at: self.index)
+//                print(ClothesViewController.clothesArray)
+//                self.navigationController?.popViewController(animated: true)
+//            }
+//        }
+//
     }
     
 }

@@ -6,10 +6,5 @@ target 'ManageClothesUIkit' do
   use_frameworks!
 
   # Pods for ManageClothesUIkit
-pod 'YSRadioButton', :git => 'https://github.com/sekies/YSRadioButton.git'
-pod 'Firebase/Analytics'
-pod 'Firebase/Auth'
-pod 'Firebase/Firestore'
-pod 'Firebase/Storage'
-pod 'SDWebImage'
+
 end

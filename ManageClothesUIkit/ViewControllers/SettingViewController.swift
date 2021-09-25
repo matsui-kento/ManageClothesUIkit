@@ -13,6 +13,8 @@ import Firebase
 class SettingViewController: UIViewController {
     private let disposeBag = DisposeBag()
     
+    @IBOutlet weak var appTitle: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var policyButton: UIButton!
