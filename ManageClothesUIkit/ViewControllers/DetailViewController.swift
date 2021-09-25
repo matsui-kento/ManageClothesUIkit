@@ -35,7 +35,10 @@ class DetailViewController: UIViewController {
     }
     
     private func setupLayout() {
+        
         detailImageView.sd_setImage(with: URL(string: imageURLString), completed: nil)
+        deleteButton.layer.cornerRadius = 10
+        
     }
     
     private func setupBindings() {

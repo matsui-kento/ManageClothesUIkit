@@ -25,6 +25,8 @@ class ClothesViewController: UIViewController {
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
         
+        fetchAllClothes()
+
         collectionViewFlowLayout.estimatedItemSize = CGSize(width: imageCollectionView.frame.width / 3, height: imageCollectionView.frame.width / 3)
         collectionViewFlowLayout.minimumLineSpacing = 0
         collectionViewFlowLayout.minimumInteritemSpacing = 0
@@ -32,14 +34,11 @@ class ClothesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        fetchAllClothes()
     }
     
     private func fetchAllClothes() {
-
         guard let uid = Auth.auth().currentUser?.uid else { return }
-
+        
         Firestore.fetchClothesArray(uid: uid) { clothesArray in
             print(clothesArray)
             self.clothesArray = clothesArray
@@ -47,7 +46,6 @@ class ClothesViewController: UIViewController {
                 self.imageCollectionView.reloadData()
             }
         }
-
     }
 }
 
@@ -70,7 +68,15 @@ extension ClothesViewController: UICollectionViewDataSource, UICollectionViewDel
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailVC" {
+            guard let detailVC = segue.destination as? DetailViewController,
+                  let indexPath = imageCollectionView.indexPathsForSelectedItems?.first else {
+                fatalError("DetailViewController is not found")
+            }
+            
+            let clothes = clothesArray[indexPath.row]
+            detailVC.imageURLString = clothes.imageURLString
+        }
     }
 }
