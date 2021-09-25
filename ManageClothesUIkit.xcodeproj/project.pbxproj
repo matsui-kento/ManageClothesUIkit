@@ -101,7 +101,6 @@
 		0E38C8F626786C5C0037A915 = {
 			isa = PBXGroup;
 			children = (
-				0E85873F26FC51E3003DAB38 /* Main.storyboard */,
 				0E38C90126786C5C0037A915 /* ManageClothesUIkit */,
 				0E38C90026786C5C0037A915 /* Products */,
 				FE2B5CB9778CC8D2328C0AA9 /* Pods */,
@@ -120,6 +119,7 @@
 		0E38C90126786C5C0037A915 /* ManageClothesUIkit */ = {
 			isa = PBXGroup;
 			children = (
+				0E85873F26FC51E3003DAB38 /* Main.storyboard */,
 				0E38C90226786C5C0037A915 /* AppDelegate.swift */,
 				0E38C90426786C5C0037A915 /* SceneDelegate.swift */,
 				0E38C92D267885F20037A915 /* Extension */,
