@@ -9,12 +9,10 @@ import UIKit
 import Firebase
 import PKHUD
 import SDWebImage
-import RxSwift
 
 
 class ClothesViewController: UIViewController {
     
-    private let disposeBag = DisposeBag()
     private var clothesArray: [Clothes] = []
     private var filterdClothesArray: [Clothes] = []
     private var categories = ["all", "tops", "bottoms", "other"]
@@ -27,19 +25,18 @@ class ClothesViewController: UIViewController {
         super.viewDidLoad()
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
-        
-        fetchAllClothes()
 
         collectionViewFlowLayout.estimatedItemSize = CGSize(width: imageCollectionView.frame.width / 3, height: imageCollectionView.frame.width / 3)
         collectionViewFlowLayout.minimumLineSpacing = 0
         collectionViewFlowLayout.minimumInteritemSpacing = 0
+        
+        fetchAllClothes()
     }
     
     private func fetchAllClothes() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         Firestore.fetchClothesArray(uid: uid) { clothesArray in
-            print(clothesArray)
             self.clothesArray = clothesArray
             self.filterdClothesArray = clothesArray
             self.updatedCollectionView()
