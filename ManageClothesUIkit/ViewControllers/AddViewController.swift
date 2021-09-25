@@ -20,9 +20,11 @@ class AddViewController: UIViewController {
     
     
     private let disposeBag = DisposeBag()
-    var category: String = ""
+    private let categories = ["tops", "bottoms", "other"]
+    private var category: String = "tops"
+    private var image: UIImage?
     
-    let imagePicker: UIImagePickerController = {
+    private let imagePicker: UIImagePickerController = {
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.sourceType = .photoLibrary
@@ -31,7 +33,6 @@ class AddViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         
         setupLayout()
         setupBindings()
@@ -55,7 +56,7 @@ class AddViewController: UIViewController {
         registerImageButton.rx.tap
             .asDriver()
             .drive() { _ in
-                if (self.imageView.image != UIImage(named: "plus")) && (self.category != "") {
+                if self.image != nil && self.category != "" {
                     self.registerClothes(category: self.category, imageString: self.imageView.image!)
                 } else {
                     HUD.flash(.labeledError(title: "登録失敗", subtitle: "登録情報を全て入力してください"), delay: 3.0)
@@ -73,7 +74,7 @@ class AddViewController: UIViewController {
     private func registerClothes(category: String, imageString: UIImage) {
         
         guard let _ = Auth.auth().currentUser?.uid else {
-            HUD.flash(.labeledError(title: "ログインしてください", subtitle: "登録にはログインが必要です"), delay: 3.0)
+            HUD.flash(.labeledError(title: "ログインしてください", subtitle: "登録にはログインが必要です"), delay: 2.0)
             return
         }
         
@@ -83,6 +84,7 @@ class AddViewController: UIViewController {
             if success {
                 HUD.flash(.success, delay: 1.0) { _ in
                     self.imageView.image = UIImage(named: "plus")
+                    self.image = nil
                 }
             } else {
                 HUD.flash(.error, delay: 1.0)
@@ -90,7 +92,8 @@ class AddViewController: UIViewController {
         }
     }
     
-    private func loginOrNot() {
+    @IBAction func categoryValueChanged(segmentedControl: UISegmentedControl) {
+        category = categories[segmentedControl.selectedSegmentIndex]
     }
 }
 
@@ -100,7 +103,7 @@ extension AddViewController: UIImagePickerControllerDelegate, UINavigationContro
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[.editedImage] as? UIImage
+        image = info[.editedImage] as? UIImage
         imageView.image = image
         imagePicker.dismiss(animated: true, completion: nil)
     }

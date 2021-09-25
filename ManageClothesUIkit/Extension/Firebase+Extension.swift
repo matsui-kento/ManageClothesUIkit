@@ -95,7 +95,7 @@ extension Firestore {
     static func fetchClothesArray(uid: String, completion: @escaping ([Clothes]) -> ()) {
 
         let docRef = Firestore.firestore().collection("Users").document(uid).collection("Clothes")
-        docRef.getDocuments { snapshots, error in
+        docRef.addSnapshotListener { snapshots, error in
             if let error = error {
                 print("ClothesのArrayの取得に失敗しました。")
                 print(error.localizedDescription)
@@ -155,7 +155,6 @@ extension Storage {
             if let error = error {
                 print("画像のStorageへの保存が失敗しました。")
                 print(error.localizedDescription)
-                completion("")
                 return
             }
             
@@ -166,7 +165,6 @@ extension Storage {
                 if let error = error {
                     print("Storageから画像URLの取得に失敗しました。")
                     print(error.localizedDescription)
-                    completion("")
                     return
                 }
                 

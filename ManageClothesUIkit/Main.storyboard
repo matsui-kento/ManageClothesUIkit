@@ -201,6 +201,9 @@
                                     <segment title="bottoms"/>
                                     <segment title="other"/>
                                 </segments>
+                                <connections>
+                                    <action selector="categoryValueChangedWithSegmentedControl:" destination="9br-lw-0oD" eventType="valueChanged" id="jwU-Q9-L1h"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NQ3-5u-Hfu"/>
