@@ -580,6 +580,13 @@
                             <constraint firstItem="F8S-g2-7EB" firstAttribute="top" secondItem="lmv-MS-hxe" secondAttribute="top" constant="50" id="w12-WP-43x"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dontCreateButton" destination="j3O-0j-Eit" id="g98-v0-0VF"/>
+                        <outlet property="emailTextField" destination="jsj-dt-0Hu" id="ryf-mh-Dog"/>
+                        <outlet property="haveAcountButton" destination="Q98-Yr-ghf" id="HhH-ju-tZd"/>
+                        <outlet property="passwordTextField" destination="x0Z-Rj-6nA" id="qab-ZL-nRb"/>
+                        <outlet property="registerButton" destination="KXj-x7-T4b" id="tdF-ll-b2z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EzH-cO-cqx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
