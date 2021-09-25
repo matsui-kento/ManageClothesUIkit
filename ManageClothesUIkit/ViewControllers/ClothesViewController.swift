@@ -16,6 +16,9 @@ class ClothesViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     private var clothesArray: [Clothes] = []
+    private var filterdClothesArray: [Clothes] = []
+    private var categories = ["all", "tops", "bottoms", "other"]
+    
     @IBOutlet weak var kindSegmentControl: UISegmentedControl!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
@@ -32,40 +35,21 @@ class ClothesViewController: UIViewController {
         collectionViewFlowLayout.minimumInteritemSpacing = 0
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     private func fetchAllClothes() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         Firestore.fetchClothesArray(uid: uid) { clothesArray in
             print(clothesArray)
             self.clothesArray = clothesArray
-            DispatchQueue.main.async {
-                self.imageCollectionView.reloadData()
-            }
+            self.filterdClothesArray = clothesArray
+            self.updatedCollectionView()
         }
     }
-}
-
-extension ClothesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.clothesArray.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as? ImageCollectionViewCell else {
-            fatalError("ImageCollectionViewCell is not found")
+    
+    private func updatedCollectionView() {
+        DispatchQueue.main.async {
+            self.imageCollectionView.reloadData()
         }
-        cell.imageView.sd_setImage(with: URL(string: self.clothesArray[indexPath.row].imageURLString), completed: nil)
-
-        return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -78,5 +62,40 @@ extension ClothesViewController: UICollectionViewDataSource, UICollectionViewDel
             let clothes = clothesArray[indexPath.row]
             detailVC.imageURLString = clothes.imageURLString
         }
+    }
+    
+    @IBAction func categoryValueChanged(segmentedControl: UISegmentedControl) {
+        let category = categories[segmentedControl.selectedSegmentIndex]
+        filterClothes(by: category)
+    }
+    
+    private func filterClothes(by category: String?) {
+        if category == nil || category == "all" {
+            self.filterdClothesArray = self.clothesArray
+            self.updatedCollectionView()
+        } else {
+            self.filterdClothesArray = self.clothesArray.filter { $0.category == category }
+            self.updatedCollectionView()
+        }
+    }
+}
+
+extension ClothesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.filterdClothesArray.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as? ImageCollectionViewCell else {
+            fatalError("ImageCollectionViewCell is not found")
+        }
+        cell.imageView.sd_setImage(with: URL(string: self.filterdClothesArray[indexPath.row].imageURLString), completed: nil)
+
+        return cell
     }
 }
