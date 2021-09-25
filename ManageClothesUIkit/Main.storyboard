@@ -69,7 +69,9 @@
                             <constraint firstItem="g5q-et-nui" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="36" id="loF-Re-ifG"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="mqH-tU-s3g"/>
+                    <tabBarItem key="tabBarItem" image="list.dash" catalog="system" id="mqH-tU-s3g">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="collectionViewFlowLayout" destination="ggS-I7-qVf" id="c5A-E1-Lfr"/>
                         <outlet property="imageCollectionView" destination="nnC-D0-uPY" id="HDN-yM-MZ0"/>
@@ -212,7 +214,9 @@
                             <constraint firstItem="NQ3-5u-Hfu" firstAttribute="bottom" secondItem="gr2-tl-our" secondAttribute="bottom" constant="51" id="qVh-Bn-q61"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="downloads" id="MqS-5p-PXX"/>
+                    <tabBarItem key="tabBarItem" image="plus" catalog="system" id="MqS-5p-PXX">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="imageView" destination="Q0f-au-CMN" id="Cbf-ft-Yr6"/>
                         <outlet property="kindSegmentControl" destination="V2C-yI-Ev8" id="Vy5-zH-bPW"/>
@@ -310,7 +314,9 @@
                             <constraint firstItem="fq8-uG-4Ca" firstAttribute="centerY" secondItem="7RQ-A0-XGk" secondAttribute="centerY" id="yg1-DE-JOX"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" systemItem="more" id="9FU-4d-PE2"/>
+                    <tabBarItem key="tabBarItem" title="" image="gearshape" catalog="system" id="9FU-4d-PE2">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="appTitle" destination="let-yD-WdT" id="mK2-GT-XRm"/>
                         <outlet property="emailLabel" destination="7iI-57-Gxg" id="uup-YZ-JlP"/>
@@ -341,6 +347,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus" width="150" height="150"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
