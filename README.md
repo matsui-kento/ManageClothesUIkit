@@ -1,14 +1,18 @@
 # クラウドクローゼット(ManageClothesUIkit)
 
-現在のコードは、大幅な変更を加えており、コードをダウンロードでしても動きません。
-アプリを動かしたい方は、App storeからダウンロードお願いします。
-
 ## アプリ概要
 服を管理できるシンプルなアプリです。
 
 開発言語はSwift、サーバーはFirebaseを利用しています。
 
 App Store: [クラウドクローゼット](https://apps.apple.com/jp/app/id1573709222)
+
+---
+## 登録した写真を見る→写真を消す
+動画を載せる
+
+## ログイン→写真を登録する
+動画を載せる
 
 ---
 
@@ -33,12 +37,17 @@ App Store: [クラウドクローゼット](https://apps.apple.com/jp/app/id1573
 ---
 
 ## アプリで使用しているライブラリ
-### CocoaPods
-・Firebase/Auth
-・Firebase/Firestore
-・Firebase/Storage
-・SDWebImage
+CocoaPodsから全てSwift Package Managerに変更
 
 ### Swift Package Manager
 ・[RXSwift](https://github.com/ReactiveX/RxSwift)
+
 ・[PKHUD](https://github.com/pkluz/PKHUD)
+
+・[Firebase/Auth](https://github.com/firebase/firebase-ios-sdk)
+
+・[Firebase/Firestore](https://github.com/firebase/firebase-ios-sdk)
+
+・[Firebase/Storage](https://github.com/firebase/firebase-ios-sdk)
+
+・[SDWebImage](https://github.com/SDWebImage/SDWebImage)
