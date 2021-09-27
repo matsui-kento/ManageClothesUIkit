@@ -32,7 +32,7 @@ class ClothesViewController: UIViewController {
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
 
-        collectionViewFlowLayout.estimatedItemSize = CGSize(width: imageCollectionView.frame.width / 3, height: imageCollectionView.frame.width / 3)
+        collectionViewFlowLayout.estimatedItemSize = CGSize(width: view.bounds.width / 3, height: view.bounds.width / 3)
         collectionViewFlowLayout.minimumLineSpacing = 0
         collectionViewFlowLayout.minimumInteritemSpacing = 0
     }

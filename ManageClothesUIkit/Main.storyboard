@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -164,14 +165,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="Q0f-au-CMN">
-                                <rect key="frame" x="82" y="181" width="250" height="250"/>
+                                <rect key="frame" x="82" y="124" width="250" height="250"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="E6F-nI-B2n"/>
                                     <constraint firstAttribute="height" constant="250" id="xdO-Ky-IxP"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gr2-tl-our">
-                                <rect key="frame" x="20" y="654" width="374" height="108"/>
+                                <rect key="frame" x="20" y="485" width="374" height="108"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9x-qh-gRv">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -198,7 +200,7 @@
                                 </subviews>
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="V2C-yI-Ev8">
-                                <rect key="frame" x="101" y="467" width="212" height="32"/>
+                                <rect key="frame" x="101" y="414" width="212" height="32"/>
                                 <segments>
                                     <segment title="tops"/>
                                     <segment title="bottoms"/>
@@ -213,14 +215,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="gr2-tl-our" firstAttribute="leading" secondItem="NQ3-5u-Hfu" secondAttribute="leading" constant="20" id="7bZ-hz-GCe"/>
-                            <constraint firstItem="Q0f-au-CMN" firstAttribute="top" secondItem="NQ3-5u-Hfu" secondAttribute="top" constant="137" id="KS6-gZ-D5B"/>
-                            <constraint firstItem="V2C-yI-Ev8" firstAttribute="top" secondItem="Q0f-au-CMN" secondAttribute="bottom" constant="36" id="bRT-Pi-CMD"/>
+                            <constraint firstItem="Q0f-au-CMN" firstAttribute="top" secondItem="NQ3-5u-Hfu" secondAttribute="top" constant="80" id="KS6-gZ-D5B"/>
+                            <constraint firstItem="gr2-tl-our" firstAttribute="top" secondItem="V2C-yI-Ev8" secondAttribute="bottom" constant="40" id="QBC-UK-7aQ"/>
+                            <constraint firstItem="V2C-yI-Ev8" firstAttribute="top" secondItem="Q0f-au-CMN" secondAttribute="bottom" constant="40" id="bRT-Pi-CMD"/>
                             <constraint firstItem="gr2-tl-our" firstAttribute="centerX" secondItem="d44-BF-D1E" secondAttribute="centerX" id="dHu-57-kgX"/>
-                            <constraint firstItem="Q0f-au-CMN" firstAttribute="leading" secondItem="NQ3-5u-Hfu" secondAttribute="leading" constant="82" id="k7Z-3I-eyN"/>
                             <constraint firstItem="Q0f-au-CMN" firstAttribute="centerX" secondItem="d44-BF-D1E" secondAttribute="centerX" id="lfU-WW-wjj"/>
-                            <constraint firstItem="Q0f-au-CMN" firstAttribute="centerX" secondItem="V2C-yI-Ev8" secondAttribute="centerX" id="ltB-yu-SJz"/>
+                            <constraint firstItem="V2C-yI-Ev8" firstAttribute="centerX" secondItem="d44-BF-D1E" secondAttribute="centerX" id="miI-ve-YaP"/>
                             <constraint firstItem="NQ3-5u-Hfu" firstAttribute="trailing" secondItem="gr2-tl-our" secondAttribute="trailing" constant="20" id="qS7-Gz-Nxk"/>
-                            <constraint firstItem="NQ3-5u-Hfu" firstAttribute="bottom" secondItem="gr2-tl-our" secondAttribute="bottom" constant="51" id="qVh-Bn-q61"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" image="plus" catalog="system" id="MqS-5p-PXX">
@@ -578,7 +579,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="p4F-KB-Rby">
-                                <rect key="frame" x="20" y="802" width="374" height="70"/>
+                                <rect key="frame" x="20" y="782" width="374" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q98-Yr-ghf">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
@@ -610,7 +611,7 @@
                         <viewLayoutGuide key="safeArea" id="lmv-MS-hxe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="p4F-KB-Rby" firstAttribute="bottom" secondItem="lmv-MS-hxe" secondAttribute="bottom" constant="10" id="BfI-cr-HAv"/>
+                            <constraint firstItem="lmv-MS-hxe" firstAttribute="bottom" secondItem="p4F-KB-Rby" secondAttribute="bottom" constant="10" id="6rL-9t-so8"/>
                             <constraint firstItem="lmv-MS-hxe" firstAttribute="trailing" secondItem="PJ7-Kg-qpp" secondAttribute="trailing" constant="20" id="DQm-4e-VKo"/>
                             <constraint firstItem="p4F-KB-Rby" firstAttribute="leading" secondItem="lmv-MS-hxe" secondAttribute="leading" constant="20" id="OiG-WU-70J"/>
                             <constraint firstItem="lmv-MS-hxe" firstAttribute="trailing" secondItem="p4F-KB-Rby" secondAttribute="trailing" constant="20" id="T8Z-zU-7si"/>
@@ -642,21 +643,38 @@
                     <view key="view" contentMode="scaleToFill" id="g2S-Nj-MFT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3M9-oV-TdY">
+                                <rect key="frame" x="20" y="44" width="50" height="50"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <imageReference key="image" image="backButton" renderingMode="template"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="isn-D4-IFj" eventType="touchUpInside" id="YfR-Uw-1nA"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Tk8-ej-CNn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3M9-oV-TdY" firstAttribute="leading" secondItem="Tk8-ej-CNn" secondAttribute="leading" constant="20" id="29d-Ad-Zb1"/>
+                            <constraint firstItem="3M9-oV-TdY" firstAttribute="top" secondItem="Tk8-ej-CNn" secondAttribute="top" id="TNn-rn-p4A"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="I9K-Of-rec"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s0H-P6-7sY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1942" y="1103"/>
+            <point key="canvasLocation" x="1940.5797101449277" y="1102.2321428571429"/>
         </scene>
     </scenes>
     <resources>
+        <image name="backButton" width="50" height="50"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
-        <image name="plus" width="150" height="150"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="plus" width="150" height="150"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
