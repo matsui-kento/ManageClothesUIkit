@@ -48,6 +48,17 @@ extension Auth {
             completion(true)
         }
     }
+    
+    static func logoutUser(completion: @escaping (Bool) -> Void) {
+        do {
+            let firebaseAuth = Auth.auth()
+            try firebaseAuth.signOut()
+            completion(true)
+        } catch let signOutError as NSError {
+            print("Error siging out: %@", signOutError)
+            completion(false)
+        }
+    }
 }
 
 extension Firestore {
