@@ -25,9 +25,6 @@ class LoginViewController: UIViewController {
     }
     
     private func setupLayout() {
-        view.backgroundColor = .white
-        navigationController?.isNavigationBarHidden = true
-        
         loginButton.layer.cornerRadius = 10
     }
     

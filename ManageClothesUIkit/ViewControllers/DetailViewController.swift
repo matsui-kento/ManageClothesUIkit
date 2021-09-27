@@ -29,16 +29,9 @@ class DetailViewController: UIViewController {
         setupBindings()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = false
-    }
-    
     private func setupLayout() {
-        
         detailImageView.sd_setImage(with: URL(string: imageURLString), completed: nil)
         deleteButton.layer.cornerRadius = 10
-        
     }
     
     private func setupBindings() {

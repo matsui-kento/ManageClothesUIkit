@@ -27,7 +27,6 @@ class RegisterViewController: UIViewController {
     }
     
     private func setupLayout() {
-        view.backgroundColor = .white
         registerButton.layer.cornerRadius = 10
     }
     

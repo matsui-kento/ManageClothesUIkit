@@ -23,23 +23,14 @@ class SettingViewController: UIViewController, BackSettingVCProtocol {
     @IBOutlet weak var policyButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
-    
     private var user: User?
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupLayout()
     }
     
     private func setupLayout() {
-        view.backgroundColor = .white
-        self.navigationController?.isNavigationBarHidden = true
-        
         fetchUserFromFirestoreAndInsertEmailTextField()
         isHiddenOrNot()
         
