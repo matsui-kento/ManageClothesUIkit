@@ -31,17 +31,13 @@ class AddViewController: UIViewController {
         super.viewDidLoad()
         
         setupLayout()
-        setupBindings()
     }
     
     private func setupLayout() {
         imagePicker.delegate = self
         selectImageButton.layer.cornerRadius = 10
         registerImageButton.layer.cornerRadius = 10
-    }
-    
-    private func setupBindings() {
-        
+        registerImageButton.alpha = self.image != nil ? 1 : 0.3
     }
     
     @IBAction func showImagePicker(_ sender: Any) {
@@ -72,6 +68,7 @@ class AddViewController: UIViewController {
                 HUD.flash(.success, delay: 1.0) { _ in
                     self.imageView.image = UIImage(named: "plus")
                     self.image = nil
+                    self.registerImageButton.alpha = 0.3
                 }
             } else {
                 HUD.flash(.error, delay: 1.0)
@@ -92,6 +89,7 @@ extension AddViewController: UIImagePickerControllerDelegate, UINavigationContro
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         image = info[.editedImage] as? UIImage
         imageView.image = image
+        registerImageButton.alpha = 1
         imagePicker.dismiss(animated: true, completion: nil)
     }
 }

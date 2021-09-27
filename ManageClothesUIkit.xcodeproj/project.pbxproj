@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E0680DA2701EC240075C8FE /* LoginAndRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0680D92701EC240075C8FE /* LoginAndRegisterViewModel.swift */; };
+		0E0680DC2701EDF50075C8FE /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0680DB2701EDF50075C8FE /* StringProtocol.swift */; };
 		0E38C90326786C5C0037A915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E38C90226786C5C0037A915 /* AppDelegate.swift */; };
 		0E38C90526786C5C0037A915 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E38C90426786C5C0037A915 /* SceneDelegate.swift */; };
 		0E38C90726786C5C0037A915 /* ClothesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E38C90626786C5C0037A915 /* ClothesViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E0680D92701EC240075C8FE /* LoginAndRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAndRegisterViewModel.swift; sourceTree = "<group>"; };
+		0E0680DB2701EDF50075C8FE /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
 		0E38C8FF26786C5C0037A915 /* ManageClothesUIkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManageClothesUIkit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E38C90226786C5C0037A915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E38C90426786C5C0037A915 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E0680D82701EC000075C8FE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0E0680D92701EC240075C8FE /* LoginAndRegisterViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		0E38C8F626786C5C0037A915 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +121,7 @@
 				0E38C93B2678C8210037A915 /* Cells */,
 				0E38C92D267885F20037A915 /* Extensions */,
 				0E38C928267883B10037A915 /* Models */,
+				0E0680D82701EC000075C8FE /* ViewModels */,
 				0E38C91B267872A00037A915 /* Views */,
 				0E38C91A267872960037A915 /* ViewControllers */,
 				0E38C90B26786C5D0037A915 /* Assets.xcassets */,
@@ -158,6 +171,7 @@
 				0E38C92B267885EE0037A915 /* UIView+Extension.swift */,
 				0E38C935267893340037A915 /* Firebase+Extension.swift */,
 				0E4A2783267DE95900511BE2 /* String+Extension.swift */,
+				0E0680DB2701EDF50075C8FE /* StringProtocol.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -317,6 +331,7 @@
 				0EA36FF9268448550053D6B8 /* PolicyTitleLabel.swift in Sources */,
 				0E38C92C267885EE0037A915 /* UIView+Extension.swift in Sources */,
 				0E38C9192678728E0037A915 /* SettingViewController.swift in Sources */,
+				0E0680DC2701EDF50075C8FE /* StringProtocol.swift in Sources */,
 				0E38C90726786C5C0037A915 /* ClothesViewController.swift in Sources */,
 				0E38C91F267873CF0037A915 /* RegisterViewController.swift in Sources */,
 				0E38C90326786C5C0037A915 /* AppDelegate.swift in Sources */,
@@ -330,6 +345,7 @@
 				0E38C90526786C5C0037A915 /* SceneDelegate.swift in Sources */,
 				0E38C936267893340037A915 /* Firebase+Extension.swift in Sources */,
 				0E4A2784267DE95900511BE2 /* String+Extension.swift in Sources */,
+				0E0680DA2701EC240075C8FE /* LoginAndRegisterViewModel.swift in Sources */,
 				0E38C923267875FF0037A915 /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
