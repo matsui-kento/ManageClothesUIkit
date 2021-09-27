@@ -38,8 +38,10 @@ class ClothesViewController: UIViewController {
     }
     
     private func fetchAllClothes() {
+        clothesArray = []
+        filterdClothesArray = []
+        
         guard let uid = Auth.auth().currentUser?.uid else {
-            filterdClothesArray = []
             updatedCollectionView()
             return
         }

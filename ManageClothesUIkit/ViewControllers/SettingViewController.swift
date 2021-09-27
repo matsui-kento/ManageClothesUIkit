@@ -81,6 +81,7 @@ class SettingViewController: UIViewController, BackSettingVCProtocol {
     private func logout() {
         Auth.logoutUser { success in
             if success {
+                self.user = nil
                 self.emailLabel.text = "ログインしていません。"
                 self.toLoginVC()
             }
