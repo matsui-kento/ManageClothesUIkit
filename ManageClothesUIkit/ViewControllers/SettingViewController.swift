@@ -33,7 +33,7 @@ class SettingViewController: UIViewController, BackSettingVCProtocol {
     
     private func setupLayout() {
         fetchUserFromFirestoreAndInsertEmailTextField()
-        isHiddenOrNot()
+        buttonIsHiddenOrNot()
         
         loginButton.layer.cornerRadius = 10
         policyButton.layer.cornerRadius = 10
@@ -54,7 +54,7 @@ class SettingViewController: UIViewController, BackSettingVCProtocol {
         toLoginVC()
     }
     
-    private func isHiddenOrNot() {
+    private func buttonIsHiddenOrNot() {
         if Auth.auth().currentUser?.uid == nil {
             loginButton.isHidden = false
             registerButton.isHidden = false
@@ -81,6 +81,7 @@ class SettingViewController: UIViewController, BackSettingVCProtocol {
     private func logout() {
         Auth.logoutUser { success in
             if success {
+                self.buttonIsHiddenOrNot()
                 self.user = nil
                 self.emailLabel.text = "ログインしていません。"
                 self.toLoginVC()
@@ -110,7 +111,7 @@ class SettingViewController: UIViewController, BackSettingVCProtocol {
     
     func updateEmailAndButton(controller: UIViewController) {
         controller.dismiss(animated: true) {
-            self.isHiddenOrNot()
+            self.buttonIsHiddenOrNot()
             self.fetchUserFromFirestoreAndInsertEmailTextField()
         }
     }
