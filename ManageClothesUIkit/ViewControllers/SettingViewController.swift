@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 protocol BackSettingVCProtocol {
     func updateEmailAndButton(controller: UIViewController)
@@ -41,14 +42,7 @@ class SettingViewController: UIViewController, BackSettingVCProtocol {
     }
     
     @IBAction func toLoginViewControllerAfterLogout(_ sender: Any) {
-        do {
-            let firebaseAuth = Auth.auth()
-            try firebaseAuth.signOut()
-            emailLabel.text = "ログインしていません。"
-            toLoginVC()
-        } catch let signOutError as NSError {
-            print("Error siging out: %@", signOutError)
-        }
+        logout()
     }
     
     @IBAction func toRegisterViewController(_ sender: Any) {
@@ -72,9 +66,7 @@ class SettingViewController: UIViewController, BackSettingVCProtocol {
         }
     }
     
-    
     private func fetchUserFromFirestoreAndInsertEmailTextField() {
-        
         guard let uid = Auth.auth().currentUser?.uid else {
             emailLabel.text = "ログインしていません。"
             return
@@ -83,6 +75,15 @@ class SettingViewController: UIViewController, BackSettingVCProtocol {
         Firestore.fetchUser(uid: uid) { user in
             self.user = user
             self.emailLabel.text = user.email
+        }
+    }
+    
+    private func logout() {
+        Auth.logoutUser { success in
+            if success {
+                self.emailLabel.text = "ログインしていません。"
+                self.toLoginVC()
+            }
         }
     }
     
@@ -104,7 +105,7 @@ class SettingViewController: UIViewController, BackSettingVCProtocol {
         self.present(registerVC, animated: true)
     }
     
-    //
+    // BackSettingVCProtocol
     
     func updateEmailAndButton(controller: UIViewController) {
         controller.dismiss(animated: true) {
