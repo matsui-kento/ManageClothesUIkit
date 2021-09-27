@@ -8,11 +8,15 @@
 import UIKit
 import Firebase
 import PKHUD
+import RxSwift
+import RxCocoa
 
 class LoginViewController: UIViewController {
     
     var delegate: BackSettingVCProtocol?
     
+    private let loginViewModel = LoginViewModel()
+    private let disposeBag = DisposeBag()
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -22,10 +26,33 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        setupBindings()
     }
     
     private func setupLayout() {
         loginButton.layer.cornerRadius = 10
+        emailTextField.becomeFirstResponder()
+    }
+    
+    private func setupBindings() {
+        emailTextField.rx.text
+            .map { $0 ?? "" }
+            .bind(to: loginViewModel.emailTextPublishSubject)
+            .disposed(by: disposeBag)
+        
+        passwordTextField.rx.text
+            .map { $0 ?? "" }
+            .bind(to: loginViewModel.passwordTextPublishSubject)
+            .disposed(by: disposeBag)
+        
+        loginViewModel.isValid()
+            .bind(to: loginButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        loginViewModel.isValid()
+            .map { $0 ? 1 : 0.3 }
+            .bind(to: loginButton.rx.alpha)
+            .disposed(by: disposeBag)
     }
     
     @IBAction func toRegisterVC(_ sender: Any) {
