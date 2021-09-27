@@ -53,4 +53,9 @@ class PolicyViewController: UIViewController {
         baseStackView.anchor(left: view.leftAnchor, right: view.rightAnchor, height: screenSize.height, leftPadding: 40, rightPadding: 40)
         
     }
+    
+    @IBAction func back(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
