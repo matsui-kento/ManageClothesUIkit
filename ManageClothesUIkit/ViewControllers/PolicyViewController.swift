@@ -24,9 +24,6 @@ class PolicyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        self.navigationController?.isNavigationBarHidden = false
-        
         setupLayout()
     }
     
