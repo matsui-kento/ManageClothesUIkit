@@ -15,7 +15,7 @@ class LoginViewModel {
     func isValid() -> Observable<Bool> {
         return Observable.combineLatest(emailTextPublishSubject.asObservable(), passwordTextPublishSubject.asObservable())
             .map { email, password in
-                return email.isValidEmail() && password.count >= 6
+                return email.isValidEmail() && password.removeWhitespaces.count >= 6
             }
     }
 }
