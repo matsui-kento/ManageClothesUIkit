@@ -44,17 +44,16 @@ password: 123456
 ---
 
 ## アプリで使用しているライブラリ
-CocoaPodsから全てSwift Package Managerに変更
-
-### Swift Package Manager
-・[RXSwift](https://github.com/ReactiveX/RxSwift)
-
-・[PKHUD](https://github.com/pkluz/PKHUD)
-
+### CocoaPods
 ・[Firebase/Auth](https://github.com/firebase/firebase-ios-sdk)
 
 ・[Firebase/Firestore](https://github.com/firebase/firebase-ios-sdk)
 
 ・[Firebase/Storage](https://github.com/firebase/firebase-ios-sdk)
+
+### Swift Package Manager
+・[RXSwift](https://github.com/ReactiveX/RxSwift)
+
+・[PKHUD](https://github.com/pkluz/PKHUD)
 
 ・[SDWebImage](https://github.com/SDWebImage/SDWebImage)
