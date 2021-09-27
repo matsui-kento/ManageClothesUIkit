@@ -64,7 +64,7 @@ class ClothesViewController: UIViewController {
                 fatalError("DetailViewController is not found")
             }
             
-            let clothes = clothesArray[indexPath.row]
+            let clothes = filterdClothesArray[indexPath.row]
             detailVC.imageURLString = clothes.imageURLString
             detailVC.documentID = clothes.documentID
         }
