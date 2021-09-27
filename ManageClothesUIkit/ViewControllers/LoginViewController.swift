@@ -7,12 +7,11 @@
 
 import UIKit
 import Firebase
-import RxSwift
 import PKHUD
 
 class LoginViewController: UIViewController {
     
-    private let disposeBag = DisposeBag()
+    var delegate: BackSettingVCProtocol?
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -22,75 +21,42 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        navigationController?.isNavigationBarHidden = true
-        
         setupLayout()
-        setupBindings()
     }
     
     private func setupLayout() {
+        view.backgroundColor = .white
+        navigationController?.isNavigationBarHidden = true
         
+        loginButton.layer.cornerRadius = 10
     }
     
-    private func setupBindings() {
-        
-        let emailValidation = self.emailTextField
-            .rx.text
-            .map({ ($0?.isValidEmail())! })
-            .share(replay: 1)
-        
-        let passwordValidation = passwordTextField
-            .rx.text
-            .map({(($0 ?? "").count >= 6)})
-            .share(replay: 1)
-        
-        
-        let enableButton = Observable.combineLatest(emailValidation, passwordValidation) { $0 && $1 }
-            .share(replay: 1)
-        
-        enableButton
-            .bind(to: loginButton.rx.isEnabled)
-            .disposed(by: disposeBag)
-        
-        loginButton.rx.tap
-            .asDriver()
-            .drive() { _ in
-                self.login()
-            }
-            .disposed(by: disposeBag)
-        
-        dontCreateUser.rx.tap
-            .asDriver()
-            .drive() { _ in
-                let mainVC = MainTabBarController()
-                self.navigationController?.pushViewController(mainVC, animated: true)
-            }
-            .disposed(by: disposeBag)
-        
-        dontHaveAcountButton.rx.tap
-            .asDriver()
-            .drive() { _ in
-                let registerVC = RegisterViewController()
-                self.navigationController?.pushViewController(registerVC, animated: true)
-            }
-            .disposed(by: disposeBag)
+    @IBAction func toRegisterVC(_ sender: Any) {
+        delegate?.toRegisterVCAfterDismiss(controller: self)
+    }
+    
+    @IBAction func login(_ sender: Any) {
+        login()
+    }
+    
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     private func login() {
-        let email = emailTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+
         HUD.show(.progress)
-        
+
         Auth.loginUser(email: email, password: password) { success in
             HUD.hide()
             if success {
                 HUD.flash(.success, delay: 1.0) { _ in
-                    let mainVC = MainTabBarController()
-                    self.navigationController?.pushViewController(mainVC, animated: true)
+                    self.delegate?.updateEmailAndButton(controller: self)
                 }
             } else {
-                HUD.flash(.labeledError(title: "ログイン失敗", subtitle: "メールアドレスもしくはパスワードが間違えています。"), delay: 3.0)
+                HUD.flash(.labeledError(title: "ログイン失敗", subtitle: "メールアドレスもしくはパスワードが間違えています。"), delay: 2.0)
             }
         }
     }
