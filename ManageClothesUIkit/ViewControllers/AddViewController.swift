@@ -38,6 +38,7 @@ class AddViewController: UIViewController {
         selectImageButton.layer.cornerRadius = 10
         registerImageButton.layer.cornerRadius = 10
         registerImageButton.alpha = self.image != nil ? 1 : 0.3
+        registerImageButton.isEnabled = (self.image != nil) ? true : false
     }
     
     @IBAction func showImagePicker(_ sender: Any) {
@@ -69,6 +70,7 @@ class AddViewController: UIViewController {
                     self.imageView.image = UIImage(named: "plus")
                     self.image = nil
                     self.registerImageButton.alpha = 0.3
+                    self.registerImageButton.isEnabled = false
                 }
             } else {
                 HUD.flash(.error, delay: 1.0)
@@ -89,7 +91,9 @@ extension AddViewController: UIImagePickerControllerDelegate, UINavigationContro
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         image = info[.editedImage] as? UIImage
         imageView.image = image
-        registerImageButton.alpha = 1
-        imagePicker.dismiss(animated: true, completion: nil)
+        imagePicker.dismiss(animated: true) {
+            self.registerImageButton.isEnabled = true
+            self.registerImageButton.alpha = 1
+        }
     }
 }
