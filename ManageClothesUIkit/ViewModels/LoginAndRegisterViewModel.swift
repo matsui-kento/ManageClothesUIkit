@@ -1,5 +1,5 @@
 //
-//  LoginViewModel.swift
+//  LoginAndRegisterViewModel.swift
 //  ManageClothesUIkit
 //
 //  Created by matsui kento on 2021/09/27.
@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class LoginViewModel {
+class LoginAndRegisterViewModel {
     let emailTextPublishSubject = PublishSubject<String>()
     let passwordTextPublishSubject = PublishSubject<String>()
     

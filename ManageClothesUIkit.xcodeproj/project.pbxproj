@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E0680DA2701EC240075C8FE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0680D92701EC240075C8FE /* LoginViewModel.swift */; };
+		0E0680DA2701EC240075C8FE /* LoginAndRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0680D92701EC240075C8FE /* LoginAndRegisterViewModel.swift */; };
 		0E0680DC2701EDF50075C8FE /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0680DB2701EDF50075C8FE /* StringProtocol.swift */; };
 		0E38C90326786C5C0037A915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E38C90226786C5C0037A915 /* AppDelegate.swift */; };
 		0E38C90526786C5C0037A915 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E38C90426786C5C0037A915 /* SceneDelegate.swift */; };
@@ -39,7 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0E0680D92701EC240075C8FE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0E0680D92701EC240075C8FE /* LoginAndRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAndRegisterViewModel.swift; sourceTree = "<group>"; };
 		0E0680DB2701EDF50075C8FE /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
 		0E38C8FF26786C5C0037A915 /* ManageClothesUIkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManageClothesUIkit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E38C90226786C5C0037A915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		0E0680D82701EC000075C8FE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				0E0680D92701EC240075C8FE /* LoginViewModel.swift */,
+				0E0680D92701EC240075C8FE /* LoginAndRegisterViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -345,7 +345,7 @@
 				0E38C90526786C5C0037A915 /* SceneDelegate.swift in Sources */,
 				0E38C936267893340037A915 /* Firebase+Extension.swift in Sources */,
 				0E4A2784267DE95900511BE2 /* String+Extension.swift in Sources */,
-				0E0680DA2701EC240075C8FE /* LoginViewModel.swift in Sources */,
+				0E0680DA2701EC240075C8FE /* LoginAndRegisterViewModel.swift in Sources */,
 				0E38C923267875FF0037A915 /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

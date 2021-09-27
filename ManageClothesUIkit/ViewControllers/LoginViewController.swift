@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     
     var delegate: BackSettingVCProtocol?
     
-    private let loginViewModel = LoginViewModel()
+    private let loginViewModel = LoginAndRegisterViewModel()
     private let disposeBag = DisposeBag()
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
