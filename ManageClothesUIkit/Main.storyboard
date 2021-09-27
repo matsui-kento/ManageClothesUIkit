@@ -130,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUS-aP-RTC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2012" y="-350"/>
+            <point key="canvasLocation" x="1941" y="-350"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="Vab-cG-Dvg">
@@ -266,7 +266,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fq8-uG-4Ca">
-                                <rect key="frame" x="20" y="365" width="374" height="166"/>
+                                <rect key="frame" x="20" y="336" width="374" height="224"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EzD-Gp-JZQ">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -292,6 +292,9 @@
                                         <state key="normal" title="ログアウト">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="toLoginViewControllerAfterLogout:" destination="j8o-yC-nNw" eventType="touchUpInside" id="lIX-Mj-839"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTs-vW-Ao4">
                                         <rect key="frame" x="0.0" y="116" width="374" height="50"/>
@@ -304,7 +307,21 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="gxy-W1-Qpc" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="rPe-Wz-LgY"/>
+                                            <action selector="toLoginViewController:" destination="j8o-yC-nNw" eventType="touchUpInside" id="Him-ji-zyZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LvY-zC-GJ4">
+                                        <rect key="frame" x="0.0" y="174" width="374" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="iw7-dq-blQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="新規登録">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toRegisterViewController:" destination="j8o-yC-nNw" eventType="touchUpInside" id="han-QL-oaN"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -332,6 +349,7 @@
                         <outlet property="loginButton" destination="FTs-vW-Ao4" id="xmo-b1-UXM"/>
                         <outlet property="logoutButton" destination="fN0-HS-DCh" id="hqR-HH-1ZP"/>
                         <outlet property="policyButton" destination="EzD-Gp-JZQ" id="s1g-0a-f7z"/>
+                        <outlet property="registerButton" destination="LvY-zC-GJ4" id="Wa6-yR-Ycu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRo-od-NKe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -341,7 +359,7 @@
         <!--Login View Controller-->
         <scene sceneID="prx-FU-mLO">
             <objects>
-                <viewController id="gxy-W1-Qpc" customClass="LoginViewController" customModule="ManageClothesUIkit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gxy-W1-Qpc" customClass="LoginViewController" customModule="ManageClothesUIkit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Hv-c3-R7s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -406,6 +424,9 @@
                                         <state key="normal" title="ログイン">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="login:" destination="gxy-W1-Qpc" eventType="touchUpInside" id="7a3-SS-nwv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -426,6 +447,9 @@
                                         <state key="normal" title="アカウントを作成する">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="toRegisterVC:" destination="gxy-W1-Qpc" eventType="touchUpInside" id="cJC-cv-IyU"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s12-6T-g2X">
                                         <rect key="frame" x="64.5" y="40" width="245" height="30"/>
@@ -435,6 +459,9 @@
                                         <state key="normal" title="アカウントを作成しないで利用する">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="back:" destination="gxy-W1-Qpc" eventType="touchUpInside" id="e9L-xX-adr"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -465,12 +492,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ldy-NH-YWR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="963.76811594202911" y="1832.8125"/>
+            <point key="canvasLocation" x="964" y="1829"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="BFs-pU-k06">
             <objects>
-                <viewController id="MbX-6d-zcQ" customClass="RegisterViewController" customModule="ManageClothesUIkit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registerVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MbX-6d-zcQ" customClass="RegisterViewController" customModule="ManageClothesUIkit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MTb-Ln-mDH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -541,6 +568,9 @@
                                         <state key="normal" title="新規登録">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerUser:" destination="MbX-6d-zcQ" eventType="touchUpInside" id="zfU-GX-30D"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -555,6 +585,9 @@
                                         <state key="normal" title="アカウントにログインする">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="toLoginVC:" destination="MbX-6d-zcQ" eventType="touchUpInside" id="Xw5-no-eSi"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3O-0j-Eit">
                                         <rect key="frame" x="0.0" y="40" width="374" height="30"/>
@@ -564,6 +597,9 @@
                                         <state key="normal" title="アカウントを作成しないで利用する">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="back:" destination="MbX-6d-zcQ" eventType="touchUpInside" id="Ut1-IJ-CqL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -583,6 +619,7 @@
                             <constraint firstItem="F8S-g2-7EB" firstAttribute="top" secondItem="lmv-MS-hxe" secondAttribute="top" constant="50" id="w12-WP-43x"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="dBA-9C-kEY"/>
                     <connections>
                         <outlet property="dontCreateButton" destination="j3O-0j-Eit" id="g98-v0-0VF"/>
                         <outlet property="emailTextField" destination="jsj-dt-0Hu" id="ryf-mh-Dog"/>
@@ -593,7 +630,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EzH-cO-cqx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1941" y="1833"/>
+            <point key="canvasLocation" x="1941" y="1829"/>
         </scene>
         <!--Policy View Controller-->
         <scene sceneID="xRB-E4-gJF">

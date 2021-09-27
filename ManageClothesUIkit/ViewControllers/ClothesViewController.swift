@@ -21,6 +21,12 @@ class ClothesViewController: UIViewController {
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fetchAllClothes()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imageCollectionView.delegate = self
@@ -29,12 +35,14 @@ class ClothesViewController: UIViewController {
         collectionViewFlowLayout.estimatedItemSize = CGSize(width: imageCollectionView.frame.width / 3, height: imageCollectionView.frame.width / 3)
         collectionViewFlowLayout.minimumLineSpacing = 0
         collectionViewFlowLayout.minimumInteritemSpacing = 0
-        
-        fetchAllClothes()
     }
     
     private func fetchAllClothes() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let uid = Auth.auth().currentUser?.uid else {
+            filterdClothesArray = []
+            updatedCollectionView()
+            return
+        }
         
         Firestore.fetchClothesArray(uid: uid) { clothesArray in
             self.clothesArray = clothesArray

@@ -36,8 +36,7 @@ extension Auth {
     
     static func loginUser(email: String, password: String, completion: @escaping (Bool) -> Void) {
         
-        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
                 print("ログインに失敗しました")
                 print(error.localizedDescription)
@@ -128,8 +127,10 @@ extension Firestore {
         }
     }
     
-    static func fetchUserFromFirestore(uid: String, completion: @escaping (User) -> ()) {
+    static func fetchUser(uid: String, completion: @escaping (User) -> ()) {
+        
         let docRef = Firestore.firestore().collection("Users").document(uid)
+        
         docRef.getDocument { snapShot, error in
             if let error = error {
                 print(error.localizedDescription)
@@ -138,6 +139,7 @@ extension Firestore {
             
             guard let data = snapShot?.data() else { return }
             let user = User(dic: data)
+            print(user)
             completion(user)
         }
     }

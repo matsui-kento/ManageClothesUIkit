@@ -12,7 +12,8 @@ import PKHUD
 
 class RegisterViewController: UIViewController {
     
-    private let disposeBag = DisposeBag()
+    var delegate: BackSettingVCProtocol?
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var haveAcountButton: UIButton!
@@ -22,60 +23,29 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setupLayout()
-        setupBindings()
     }
     
     private func setupLayout() {
+        view.backgroundColor = .white
+        registerButton.layer.cornerRadius = 10
     }
     
-    private func setupBindings() {
-        
-        let emailValidation = self.emailTextField
-            .rx.text
-            .map({ ($0?.isValidEmail())! })
-            .share(replay: 1)
-        
-        let passwordValidation = passwordTextField
-            .rx.text
-            .map({(($0 ?? "").count >= 6)})
-            .share(replay: 1)
-        
-        
-        let enableButton = Observable.combineLatest(emailValidation, passwordValidation) { $0 && $1 }
-            .share(replay: 1)
-        
-        enableButton
-            .bind(to: registerButton.rx.isEnabled)
-            .disposed(by: disposeBag)
-        
-        registerButton.rx.tap
-            .asDriver()
-            .drive() { _ in
-                self.createUser()
-            }
-            .disposed(by: disposeBag)
-        
-        dontCreateButton.rx.tap
-            .asDriver()
-            .drive() { _ in
-                let mainVC = MainTabBarController()
-                self.navigationController?.pushViewController(mainVC, animated: true)
-            }
-            .disposed(by: disposeBag)
-        
-        haveAcountButton.rx.tap
-            .asDriver()
-            .drive() { _ in
-                self.navigationController?.popViewController(animated: true)
-            }
-            .disposed(by: disposeBag)
+    @IBAction func registerUser(_ sender: Any) {
+        registerUser()
     }
     
-    private func createUser() {
-        let email = emailTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
+    @IBAction func toLoginVC(_ sender: Any) {
+        delegate?.toLoginVCAfterDismiss(controller: self)
+    }
+    
+    @IBAction func back(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func registerUser() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
         
         HUD.show(.progress)
         Auth.createUserWithFirestore(email: email, password: password) { success in
@@ -83,11 +53,10 @@ class RegisterViewController: UIViewController {
             if success {
                 print("ユーザーのAuthentication,Firestoreへの保存が完了しました。")
                 HUD.flash(.success, delay: 1.0) { _ in
-                    let mainVC = MainTabBarController()
-                    self.navigationController?.pushViewController(mainVC, animated: true)
+                    self.delegate?.updateEmailAndButton(controller: self)
                 }
             } else {
-                HUD.flash(.labeledError(title: "登録失敗", subtitle: "メールアドレスが既に使われています。"), delay: 3.0)
+                HUD.flash(.labeledError(title: "登録失敗", subtitle: "メールアドレスが既に使われています。"), delay: 1.5)
                 print("ユーザーのAuthentication,Firestoreへの保存が失敗しました。")
             }
         }
