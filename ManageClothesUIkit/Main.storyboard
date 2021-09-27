@@ -110,6 +110,9 @@
                                 <state key="normal" title="写真を削除する">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteClothes:" destination="ogw-BY-OhM" eventType="touchUpInside" id="DoL-L2-bnc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mQC-lP-LEh"/>

@@ -66,6 +66,7 @@ class ClothesViewController: UIViewController {
             
             let clothes = clothesArray[indexPath.row]
             detailVC.imageURLString = clothes.imageURLString
+            detailVC.documentID = clothes.documentID
         }
     }
     
