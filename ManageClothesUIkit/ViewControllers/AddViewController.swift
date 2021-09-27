@@ -6,9 +6,7 @@
 //
 
 import UIKit
-import RxSwift
 import PKHUD
-import RxCocoa
 import Firebase
 
 class AddViewController: UIViewController {
@@ -18,8 +16,6 @@ class AddViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var selectImageButton: UIButton!
     
-    
-    private let disposeBag = DisposeBag()
     private let categories = ["tops", "bottoms", "other"]
     private var category: String = "tops"
     private var image: UIImage?
@@ -46,35 +42,26 @@ class AddViewController: UIViewController {
     
     private func setupBindings() {
         
-        selectImageButton.rx.tap
-            .asDriver()
-            .drive() { _ in
-                self.showImagePicker()
-            }
-            .disposed(by: disposeBag)
-        
-        registerImageButton.rx.tap
-            .asDriver()
-            .drive() { _ in
-                if self.image != nil && self.category != "" {
-                    self.registerClothes(category: self.category, imageString: self.imageView.image!)
-                } else {
-                    HUD.flash(.labeledError(title: "登録失敗", subtitle: "登録情報を全て入力してください"), delay: 3.0)
-                    return
-                }
-            }
-            .disposed(by: disposeBag)
-        
     }
     
-    private func showImagePicker() {
+    @IBAction func showImagePicker(_ sender: Any) {
         present(imagePicker, animated: true)
     }
+    
+    @IBAction func registerClothes(_ sender: Any) {
+        if self.image != nil && self.category != "" {
+            self.registerClothes(category: self.category, imageString: self.imageView.image!)
+        } else {
+            HUD.flash(.labeledError(title: "登録失敗", subtitle: "登録情報を全て入力してください"), delay: 1.5)
+            return
+        }
+    }
+    
     
     private func registerClothes(category: String, imageString: UIImage) {
         
         guard let _ = Auth.auth().currentUser?.uid else {
-            HUD.flash(.labeledError(title: "ログインしてください", subtitle: "登録にはログインが必要です"), delay: 2.0)
+            HUD.flash(.labeledError(title: "ログインしてください", subtitle: "登録にはログインが必要です"), delay: 1.5)
             return
         }
         

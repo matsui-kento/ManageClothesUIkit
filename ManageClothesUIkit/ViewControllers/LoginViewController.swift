@@ -53,7 +53,7 @@ class LoginViewController: UIViewController {
                     self.delegate?.updateEmailAndButton(controller: self)
                 }
             } else {
-                HUD.flash(.labeledError(title: "ログイン失敗", subtitle: "メールアドレスもしくはパスワードが間違えています。"), delay: 2.0)
+                HUD.flash(.labeledError(title: "ログイン失敗", subtitle: "メールアドレスもしくはパスワードが間違えています。"), delay: 1.5)
             }
         }
     }
