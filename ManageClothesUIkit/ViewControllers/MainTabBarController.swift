@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 
 class MainTabBarController: UITabBarController {
     
@@ -14,9 +13,5 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .white
         UITabBar.appearance().tintColor = UIColor.black
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
 }
