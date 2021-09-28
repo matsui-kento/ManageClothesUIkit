@@ -19,9 +19,9 @@ password: 123456
 https://user-images.githubusercontent.com/69304437/135024672-3dd4738e-214c-4c71-b5b1-8cf8e4392e6e.mp4
 
 
-## ログイン→写真を登録する
-https://user-images.githubusercontent.com/69304437/135024701-c50885be-17fa-4406-89ba-68a0df9bcf74.mp4
 
+## ログイン→写真を登録する
+https://user-images.githubusercontent.com/69304437/135074686-2b1124f8-28f4-4122-aa01-9e35e0f0c49b.mp4
 
 ---
 
