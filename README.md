@@ -16,17 +16,19 @@ password: 123456
 
 ---
 ## 登録した写真を見る→写真を消す
-動画を載せる
+https://user-images.githubusercontent.com/69304437/135024672-3dd4738e-214c-4c71-b5b1-8cf8e4392e6e.mp4
+
 
 ## ログイン→写真を登録する
-動画を載せる
+https://user-images.githubusercontent.com/69304437/135024701-c50885be-17fa-4406-89ba-68a0df9bcf74.mp4
+
 
 ---
 
 ## アプリの利用画面
-![1](https://user-images.githubusercontent.com/69304437/134537622-dbb58843-3252-402c-817f-f4be67eb4594.png)
-![2](https://user-images.githubusercontent.com/69304437/134537643-deff22fc-3927-4562-b39f-cd449dc438b6.png)
-![3](https://user-images.githubusercontent.com/69304437/134537649-07027489-55ef-40e7-9694-b3dda9a16479.png)
+![1](https://user-images.githubusercontent.com/69304437/135024494-9c47c7cb-6a9a-42d1-ba56-d0eaa29455dd.png)
+![2](https://user-images.githubusercontent.com/69304437/135024538-f08cc1db-6652-4375-88f1-11fe69ac167a.png)
+![3](https://user-images.githubusercontent.com/69304437/135024542-fe2cf8bb-735e-42e2-8762-1b513fe68f2b.png)
 
 ---
 
