@@ -51,15 +51,15 @@ https://user-images.githubusercontent.com/69304437/135074686-2b1124f8-28f4-4122-
 
 ## アプリで使用しているライブラリ
 ### CocoaPods
-・[Firebase/Auth](https://github.com/firebase/firebase-ios-sdk)
+- [Firebase/Auth](https://github.com/firebase/firebase-ios-sdk)
 
-・[Firebase/Firestore](https://github.com/firebase/firebase-ios-sdk)
+- [Firebase/Firestore](https://github.com/firebase/firebase-ios-sdk)
 
-・[Firebase/Storage](https://github.com/firebase/firebase-ios-sdk)
+- [Firebase/Storage](https://github.com/firebase/firebase-ios-sdk)
 
 ### Swift Package Manager
-・[RXSwift](https://github.com/ReactiveX/RxSwift)
+- [RXSwift](https://github.com/ReactiveX/RxSwift)
 
-・[PKHUD](https://github.com/pkluz/PKHUD)
+- [PKHUD](https://github.com/pkluz/PKHUD)
 
-・[SDWebImage](https://github.com/SDWebImage/SDWebImage)
+- [SDWebImage](https://github.com/SDWebImage/SDWebImage)
