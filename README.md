@@ -5,15 +5,6 @@
 
 開発言語はSwift、サーバーはFirebaseを利用しています。
 
-App Store: [クラウドクローゼット](https://apps.apple.com/jp/app/id1573709222)
-
-### テストユーザー
-email: user1@gmail.com
-
-password: 123456
-
-＊アプリをどんなものが触りたいけど、メールアドレスは登録したくないという方はお使いください。
-
 ---
 ## 登録した写真を見る→写真を消す
 
